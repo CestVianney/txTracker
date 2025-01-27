@@ -8,14 +8,13 @@
   </head>
   <body>
     <div id="wallet-info">
-      <h3>Wallet Address: <input type="text" id="userAddress"/></h3>
       <h3>Wallet Address: <span id="wallet-address">Loading...</span></h3>
+      <input id="userAddress" type="text" placeholder="Enter Wallet Address" />
+      <div id="transactions-container">
+        <ul id="transactions"></ul>
+      </div>
       <h4>Recent Transactions</h4>
-      <button id="accountData" onclick="getAccountData()">Refresh</button>
-      <ul id="transactions">
-
-      </ul>
     </div>
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
   </body>
 </html>

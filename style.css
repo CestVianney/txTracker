@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a0b8c, #9b4d97); /* Dégradé violet */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  #wallet-info {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+  }
+  
+  h3, h4 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #5f0583;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #32073f;
+  }
+  
+  #transactions-container {
+    top: 20px;
+    bottom: 40px;
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    padding: 10px; /* Espacement autour des blocs */
+    perspective: 1500px; /* La perspective pour la profondeur */
+  }
+  
+  #transactions {
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
+  
+  #transactions li {
+    width: 60px; /* Largeur et hauteur du cube */
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d; /* Permet de maintenir les transformations 3D */
+    transform: rotateY(30deg) rotateX(30deg); /* Rotation pour voir 3 faces */
+    margin: 0 10px; /* Espacement entre les cubes */
+    opacity: 1;  /* Assure que les éléments sont visibles directement */
+    visibility: visible; /* Les blocs sont visibles dès le départ */
+  }
+  
+  /* Faces du cube */
+  #transactions li .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #4a0b63; /* Violet pour les faces */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour l'effet 3D */
+    border-radius: 5px; /* Coins arrondis */
+  }
+  
+  /* Face avant */
+  #transactions li .front {
+    transform: translateZ(30px); /* Face avant positionnée par rapport à l'axe Z */
+  }
+  
+  /* Face droite */
+  #transactions li .right {
+    transform: rotateX(-90deg) translateZ(30px);
+    background-color: #32073f; /* Face droite positionnée en 90deg */
+  }
+  
+  /* Face du dessus */
+  #transactions li .top {
+    transform: rotateY(-90deg) translateZ(30px);
+    background-color: #5f0583; /* Face du dessus positionnée en 90deg */
+  }
+  
+  #transactions li:first-child .front,
+  #transactions li:first-child .right,
+  #transactions li:first-child .top {
+    background-color: #1bb83d; /* Un violet légèrement plus sombre pour le dernier bloc */
+  }
+  
+  /* Ajout d'un effet de survol sur les blocs */
+  #transactions li:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+    outline: 2px solid rgba(114, 7, 87, 0.692);
+    outline-offset: 5px;
+  }
+  
+  #transactions li:first-child:hover .front,
+  #transactions li:first-child:hover .right,
+  #transactions li:first-child:hover .top {
+    transform: rotateY(0deg) rotateX(0deg);
+    outline: 2px solid rgba(11, 110, 28, 0.692);
+    outline-offset: 5px;
+  }
